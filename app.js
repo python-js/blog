@@ -16,7 +16,7 @@ app.use('/node_modules',express.static('./node_modules'))
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({ extended:false }));
 
-//注册 session 中间件
+//注册 session 中间件 //存储用户信息，判断用户登录状态
 var session = require('express-session');
 app.use(session({
     secret: '这是加密字符串，随便写！', // 用来生成加密的内容
@@ -43,6 +43,6 @@ fs.readdir(path.join(__dirname, './router'), (err, results) => {
 })
 
 
-app.listen(3003, ()=>{
-    console.log('http://127.0.0.1:3003');
+app.listen(3004, ()=>{
+    console.log('http://127.0.0.1:3004');
 });

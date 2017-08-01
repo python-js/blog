@@ -9,7 +9,7 @@ module.exports = {
         res.render('./user/register',{});
     },
     reqisterNewUser(req, res) { //注册新用户
-        //使用中间件厚，req.body 能将用户传入过来的信息 转换成对象的格式
+        //使用中间件，req.body 能将用户传入过来的信息 转换成对象的格式
         // console.log(req.body);
         user = req.body;
         // console.log(user.username);
@@ -44,12 +44,12 @@ module.exports = {
             if (err) return res.json({ err_code:1, msg:'登陆失败'});
 
             //在返回登录成功之前，先把登录的状态 和 登录用户的数据， 保存到 session 中
-            console.log(req.session);
+            // console.log(req.session);
             //当注册 session 中间件 ok之后，只要你能访问到 req 这个对象， 那么就能访问到 req.session
             req.session.islogin = true;
             req.session.user = results[0];
 
-            console.log(req.session);
+            // console.log(req.session);
 
 
             return res.json({ err_code:0, msg:"登陆成功" });

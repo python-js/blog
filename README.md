@@ -33,3 +33,37 @@ nodeJs + express + MySql 实现的个人博客
 + genid: 产生一个新的 session_id 时，所使用的函数， 默认使用 uid2 这个 npm 包。
 + rolling: 每个请求都重新设置一个 cookie，默认为 false。
 + resave: 即使 session 没有被修改，也保存 session 值，默认为 true。
+
+## 数据库中插入一条数据后，返回的results内容
+  OkPacket {
+    fieldCount: 0,
+    affectedRows: 1, // 影响条数
+    insertId: 4, // 插入数据库中的id值
+    serverStatus: 2,
+    warningCount: 0,
+    message: '',
+    protocol41: true,
+    changedRows: 0 }
+
+## 数据库中两个表匹配查找时，返回的results 内容
+    [ 
+      [ 
+        RowDataPacket {
+          id: 3,
+          title: '自我介绍',
+          content: '我叫叼咋天',
+          authorId: 2,
+          ctime: 2017-07-30T10:01:40.000Z,
+          nickname: '屌炸天' },
+        RowDataPacket {
+          id: 2,
+          title: '第二篇',
+          content: '<h1>天气真是热<h1>\n<br>\nhaha ',
+          authorId: 1,
+          ctime: 2017-07-30T10:00:12.000Z,
+          nickname: '迪奥' } 
+      ],
+      [ 
+        RowDataPacket { totalCount: 3 } 
+      ] 
+    ]
